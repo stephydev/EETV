@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Enseignement - Temple Victoire</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    </head>
+    <body>
+         <h1>Eglise Temple Victoire Lumière des Nations</h1>
+        <header>
+             <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+                <!-- Le Logo reste visible tout le temps -->
+                     <img id="logo" src="images/logoeetv.jpg" alt="Eglise Temple Victoire logo with cross and flame symbol" style="max-height: 50px;"> 
+                <!-- ÉLÉMENT MANQUANT : Le bouton hamburger pour mobile -->
+                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                             <span class="navbar-toggler-icon"></span>
+                         </button>
+                <!-- Le contenu qui va se masquer sur mobile et se dérouler -->
+                     <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0"> <!-- me-auto pousse le bouton de don vers la droite -->
+                                 <li class="nav-item">
+                                      <a class="nav-link active" aria-current="page" href="index.html">ACCUEIL</a>
+                                 </li>
+                                 <li class="nav-item">
+                                      <a class="nav-link" href="temple-victoire.html">TEMPLE VICTOIRE</a>
+                                 </li>
+                                 <li class="nav-item">
+                                      <a class="nav-link" href="evenements.html">EVENEMENTS</a>
+                                 </li>
+                                 <li class="nav-item">
+                                      <a class="nav-link" href="enseignements.html">ENSEIGNEMENTS</a>
+                                 </li>
+                                 <li class="nav-item">
+                                      <a class="nav-link" href="contact.html">CONTACT</a>
+                                 </li>
+                           </ul>
+                <!-- Bouton d'action -->
+                        <a id="donate-btn" class="btn btn-danger" href="#">Apporter une Offrande</a>
+                 </div>
+             </nav>
+        </header>
+
+        <body id="enseignements-page" class="py-5">
+
+  <main class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+
+        <!-- Carte principale -->
+        <div class="card main-card shadow-lg border-0">
+
+          <!-- Bannière / En-tête -->
+          <div class="hero-banner">
+            <div class="hero-icon">
+              <i class="bi bi-calendar2-week"></i>
+            </div>
+            <h2 class="fw-bold mb-1">Programme Hebdomadaire</h2>
+            <p>Rejoignez-nous pour ces moments de partage et de foi</p>
+          </div>
+
+          <div class="card-body p-4">
+
+            <!-- Liste des programmes -->
+            <div class="list-group list-group-flush">
+
+              <!-- Dimanche -->
+              <div class="list-group-item program-item">
+                <div class="d-flex w-100 align-items-center gap-3">
+                  <div class="day-icon icon-sunday">
+                    <i class="bi bi-sun-fill"></i>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <h5 class="mb-0 fw-bold text-dark">Dimanche</h5>
+                      <span class="badge bg-primary rounded-pill px-3 py-2 badge-time">08h30 - 11h45</span>
+                    </div>
+                    <p class="mb-0 text-muted">Culte d'adoration et d'action de grâce</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mercredi -->
+              <div class="list-group-item program-item">
+                <div class="d-flex w-100 align-items-center gap-3">
+                  <div class="day-icon icon-wednesday">
+                    <i class="bi bi-droplet-fill"></i>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <h5 class="mb-0 fw-bold text-dark">Mercredi</h5>
+                      <span class="badge bg-success rounded-pill px-3 py-2 badge-time">09h00 - 12h00</span>
+                    </div>
+                    <p class="mb-0 text-muted">Culte de délivrance et de réception</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vendredi -->
+              <div class="list-group-item program-item">
+                <div class="d-flex w-100 align-items-center gap-3">
+                  <div class="day-icon icon-friday">
+                    <i class="bi bi-stars"></i>
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                      <h5 class="mb-0 fw-bold text-dark">Vendredi</h5>
+                      <span class="badge bg-warning text-dark rounded-pill px-3 py-2 badge-time">18h30 - 21h00</span>
+                    </div>
+                    <p class="mb-0 text-muted">Culte d'enseignement et de miracle</p>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!-- Fin liste -->
+
+          </div>
+        </div> <!-- Fin carte -->
+
+      </div>
+    </div>
+  </main>
+</body>
+    <footer class="bg-dark bg-gradient text-white pt-5 pb-4">
+  <div class="container text-center text-md-start">
+    <div class="row text-center text-md-start mt-3">
+      
+      <!-- Colonne 1 : À propos -->
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">TEMPLE VICTOIRE</h5>
+        <p>Une description courte et percutante de votre site ou de vos services pour informer vos visiteurs.</p>
+      </div>
+
+      <!-- Colonne 3 : Liens de contact -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Produits</h5>
+        <p><a href="temple-victoire.html" class="text-white text-decoration-none">TEMPLE VICTOIRE</a></p>
+        <p><a href="evenements.html" class="text-white text-decoration-none">EVENEMENTS</a></p>
+        <p><a href="enseignements.html" class="text-white text-decoration-none">ENSEIGNEMENTS</a></p>
+        <p><a href="contact.html" class="text-white text-decoration-none">CONTACT</a></p>
+      </div>
+
+      <!-- Colonne 4 : Contact -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+        <p><i class="fas fa-home mr-3"></i> Abidjan, Côte d'Ivoire</p>
+        <p><i class="fas fa-envelope mr-3"></i> templevictoire@gmail.com</p>
+        <p><i class="fas fa-phone mr-3"></i> +225 00 00 00 00</p>
+      </div>
+    </div>
+
+    <hr class="mb-4">
+
+    <!-- Ligne inférieure : Copyright et Réseaux sociaux -->
+    <div class="row align-items-center">
+      <div class="col-md-7 col-lg-8">
+        <p>Copyright ©2026 Tous droits réservés par :
+          <a href="#" style="text-decoration: none;">
+            <strong class="text-warning">Temple Victoire</strong>
+          </a>
+        </p>
+      </div>
+
+      <div class="col-md-5 col-lg-4">
+        <div class="text-center text-md-end">
+          <ul class="list-unstyled list-inline">
+            <li class="list-inline-item">
+              <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-tiktok"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-youtube"></i></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</html>
