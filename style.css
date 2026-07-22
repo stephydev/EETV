@@ -1,423 +1,642 @@
+/* ===================================================================
+   TEMPLE VICTOIRE LUMIÈRE DES NATIONS — Design System
+   Palette : nuit indigo / or-flamme / braise, sur fond ivoire chaud.
+   Signature : motif "rayons" (sunburst) rappelant la lumière qui
+   perce l'obscurité — thème central de l'église.
+   Typo : Fraunces (display) + Manrope (texte courant).
+=================================================================== */
+
+:root {
+  --ivory: #fbf7ef;
+  --ivory-deep: #f1e9da;
+  --ink: #211f2c;
+  --ink-soft: #5b5770;
+  --night: #17163a;
+  --night-soft: #262456;
+  --night-softer: #34316b;
+  --gold: #e8a33d;
+  --gold-light: #f5c878;
+  --ember: #c1432a;
+  --emerald: #1b6e5c;
+
+  --radius-lg: 26px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+
+  --shadow-soft: 0 20px 45px -22px rgba(23, 22, 58, 0.35);
+  --shadow-card: 0 14px 32px -18px rgba(23, 22, 58, 0.28);
+
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--ivory);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+::selection { background: var(--gold-light); color: var(--night); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ===================== TITRE PRINCIPAL MASQUÉ (SEO) ============== */
+body > h1:first-of-type {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ============================ NAVBAR ============================= */
 #main-navbar {
-  padding: 30px;
-  background-color: #d6efe6f1;
+  padding: 14px 0;
+  background: rgba(251, 247, 239, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(23, 22, 58, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
 }
+
 #logo {
-  width: 50px;
-  height: 50px;
-  margin-left: 90px;
+  width: 52px;
+  height: 52px;
+  margin-left: 5%;
   border-radius: 50%;
+  border: 2px solid var(--gold);
+  padding: 2px;
+  object-fit: cover;
+  background: #fff;
 }
-li.nav-item {
-  margin-right: 50px;
+
+.navbar-nav { align-items: center; }
+
+li.nav-item { margin-right: 8px; }
+
+.navbar .nav-link {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-soft) !important;
+  padding: 8px 14px !important;
+  position: relative;
+  transition: color 0.25s ease;
 }
+
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 14px; right: 14px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active { color: var(--night) !important; }
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after { transform: scaleX(1); }
+
 #donate-btn {
-  margin-right: 35px;
- 
-  padding: 10px 20px;
-  font-size: "3rem;
+  margin-right: 4%;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--gold) 0%, var(--ember) 130%);
+  box-shadow: 0 10px 22px -10px rgba(193, 67, 42, 0.55);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-h1 {
-  font-size: 3rem;
-  margin-top: 20px;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+#donate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px -10px rgba(193, 67, 42, 0.6);
+  background: linear-gradient(120deg, var(--gold-light) 0%, var(--ember) 130%);
 }
-#welcome-section {
-  text-align: center;
-  margin-top: 50px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+/* ======================= TYPOGRAPHIE GLOBALE ====================== */
+h1, h2, h3, h4, h5, .card-title {
+  font-family: var(--font-display);
+  color: var(--night);
 }
-#enseignements-btn{
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+.eyebrow svg { width: 16px; height: 16px; }
+
+.section-title {
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 64px; height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--ember));
+}
+
+.section-title.text-center::after { left: 50%; transform: translateX(-50%); }
+
+/* ===================== MOTIF SIGNATURE : RAYONS =================== */
+.rayons-divider {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
+  align-items: center;
+  margin: 3rem 0;
+  color: var(--gold);
+  opacity: 0.85;
 }
+
+.rayons-divider svg { width: 46px; height: 46px; }
+
+.rayons-divider.on-dark { color: var(--gold-light); }
+
+/* ============================ HERO (index) ========================= */
+.hero-wrap {
+  position: relative;
+  background: var(--night);
+  background-image:
+    radial-gradient(60% 90% at 85% 0%, rgba(232, 163, 61, 0.28) 0%, transparent 60%),
+    radial-gradient(50% 80% at 0% 100%, rgba(27, 110, 92, 0.22) 0%, transparent 60%);
+  padding: 3rem 0 0;
+  overflow: hidden;
+}
+
+.hero-intro {
+  text-align: center;
+  color: #fff;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  padding: 0 1.25rem;
+}
+
+.hero-intro .eyebrow { color: var(--gold-light); }
+
+.hero-intro h2 {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin: 0.6rem 0 0.8rem;
+}
+
+.hero-intro p { color: rgba(255, 255, 255, 0.72); font-size: 1.05rem; }
+
+.carousel {
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.carousel-item img { filter: saturate(1.05) contrast(1.02); }
+
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(23,22,58,0.55) 0%, transparent 40%);
+}
+
+.carousel-control-prev, .carousel-control-next { width: 6%; }
+
+/* ================== SECTION BIENVENUE / TEXTES ==================== */
+#welcome-section {
+  text-align: center;
+  margin: 0;
+  padding: 3.5rem 1rem 2.5rem;
+  text-shadow: none;
+  background: var(--ivory);
+}
+
+#welcome-section h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; }
+#welcome-section p { color: var(--ink-soft); font-size: 1.05rem; }
+
+.container > .row { padding: 0 0.75rem 3rem; }
+
+.row .card {
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  background: #fff;
+  height: 100%;
+}
+
+.row .card .card-body { padding: 2rem; }
+.row .card h5 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.9rem; }
+.row .card .card-text { color: var(--ink-soft); line-height: 1.7; }
+
+#enseignements-btn { margin: 0 0 3rem; padding: 0; }
+
+#enseignements-btn a {
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--gold) 0%, var(--ember) 130%);
+  box-shadow: 0 14px 28px -14px rgba(193, 67, 42, 0.55);
+  transition: transform 0.25s ease;
+}
+
+#enseignements-btn a:hover { transform: translateY(-2px); }
+
+/* ===================== CARTES "PAROLES" (home-page) ================ */
+.paroles-section { background: var(--ivory-deep); padding: 3.5rem 0; }
+
+.card-group { gap: 1.75rem; flex-wrap: wrap; padding: 0 1.5rem; }
+
+.card-group .card {
+  border: none;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background: #fff;
+  flex: 1 1 300px;
+  border-top: 4px solid var(--gold);
+}
+
+.card-group .card:hover { transform: translateY(-8px); box-shadow: 0 1.25rem 2.5rem rgba(23, 22, 58, 0.18); }
+.card-group .card-img-top { height: 220px; object-fit: cover; transition: transform 0.5s ease; }
+.card-group .card:hover .card-img-top { transform: scale(1.06); }
+.card-group .card-body { padding: 1.75rem; display: flex; flex-direction: column; }
+
+.card-group .card-title {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.9rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.card-group .card-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 45px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--ember));
+  border-radius: 3px;
+}
+
+.card-group .card-text { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; flex-grow: 1; }
+
+.card-group .card-footer {
+  background: var(--ivory-deep);
+  border-top: 1px solid rgba(23,22,58,0.06);
+  padding: 0.85rem 1.75rem;
+}
+
+.card-group .card-footer small { font-size: 0.8rem; letter-spacing: 0.02em; color: var(--ink-soft); }
+
+@media (max-width: 767.98px) {
+  .card-group { flex-direction: column; }
+  .card-group .card-img-top { height: 200px; }
+}
+
+/* ============================ BLOC PASTEUR ========================= */
 #maps-section {
   text-align: center;
-  margin-top: 50px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  margin: 0;
+  padding: 3.5rem 1rem 1rem;
+  text-shadow: none;
 }
 
-
-.home-page {
-      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-      padding: 3rem 1.5rem;
-    }
-
-    .card-group {
-      gap: 1.75rem;
-      flex-wrap: wrap;
-    }
-
-    .card {
-      border: none;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      background: #fff;
-      flex: 1 1 300px;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.12);
-    }
-
-    /* Image */
-    .card-img-top {
-      height: 220px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .card:hover .card-img-top {
-      transform: scale(1.06);
-    }
-
-    /* Corps de la carte */
-    .card-body {
-      padding: 1.75rem;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card-title {
-      font-weight: 700;
-      color: #1e293b;
-      font-size: 1.2rem;
-      margin-bottom: 0.9rem;
-      position: relative;
-      padding-bottom: 0.6rem;
-    }
-
-    .card-title::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 45px;
-      height: 3px;
-      background: linear-gradient(90deg, #6366f1, #818cf8);
-      border-radius: 3px;
-    }
-
-    .card-text {
-      color: #64748b;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      flex-grow: 1;
-    }
-
-    /* Pied de carte */
-    .card-footer {
-      background: #f8fafc;
-      border-top: 1px solid #eef1f5;
-      padding: 0.85rem 1.75rem;
-    }
-
-    .card-footer small {
-      font-size: 0.8rem;
-      letter-spacing: 0.02em;
-    }
-
-    /* Responsive : cartes empilées proprement sur mobile */
-    @media (max-width: 767.98px) {
-      .card-group {
-        flex-direction: column;
-      }
-
-      .card-img-top {
-        height: 200px;
-      }
-    }
-
-
-    
-/* programme de culte */
-
-    #programmes-page .custom-card {
-        border-radius: 16px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        background: #fff;
-    }
-
-    #programmes-page .custom-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12) !important;
-    }
-
-    #programmes-page .card-title {
-        line-height: 1.4;
-        min-height: 3.2rem;
-    }
-
-    #programmes-page .card-text {
-        line-height: 1.6;
-        min-height: 5rem;
-    }
-
-    #programmes-page .bg-primary-subtle,
-    #programmes-page .bg-danger-subtle,
-    #programmes-page .bg-success-subtle {
-        width: 70px;
-        height: 70px;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease;
-    }
-
-    #programmes-page .custom-card:hover .bg-primary-subtle,
-    #programmes-page .custom-card:hover .bg-danger-subtle,
-    #programmes-page .custom-card:hover .bg-success-subtle {
-        transform: scale(1.1) rotate(-5deg);
-    }
-
-    #programmes-page .time-badge {
-        display: inline-block;
-        padding: 0.5rem 1.25rem;
-        border-radius: 50px;
-        background-color: #f8f9fa;
-        border: 1px solid #e9ecef;
-        font-size: 0.95rem;
-    }
-
-    #programmes-page h2 {
-        position: relative;
-        padding-bottom: 1rem;
-    }
-
-    #programmes-page h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: var(--bs-primary);
-        border-radius: 3px;
-    }
-    
-
-/* Conteneur principal : active Flexbox et gère l'espace footer */
 .conteneur {
-display: flex;
-align-items: center; /* Centre les blocs verticalement */
-justify-content: space-between; /* Sépare les blocs avec de l'espace */
-gap: 40px; /* Espace entre les deux blocs */
-max-width: 1200px;
-margin: 0 auto;
-padding: 20px;
-font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
 }
-/* Chaque bloc prend 50% de l'espace disponible footer */
-.bloc-gauche, .bloc-droite {
-flex: 1;
-}
-/* Vidéo responsive pour s'adapter à la taille de la colonne footer*/
+
+.bloc-gauche, .bloc-droite { flex: 1; }
+.bloc-gauche .eyebrow { margin-bottom: 0.6rem; }
+.bloc-gauche h3 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin: 0.4rem 0 1rem; }
+.bloc-gauche p { font-family: var(--font-body) !important; color: var(--ink-soft); line-height: 1.8; }
+
 .bloc-droite iframe {
-width: 100%;
-height: auto;
-aspect-ratio: 16 / 9; /* Conserve un format vidéo standard footer */
-border-radius: 8px;
-}
-/* Adaptation pour les téléphones : empile les blocs l'un sur l'autre footer */
-@media (max-width: 768px) {
-.conteneur {
-flex-direction: column;
-}
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
 }
 
+@media (max-width: 768px) { .conteneur { flex-direction: column; } }
 
+/* ============================ PAGE ÉVÉNEMENTS ====================== */
+main.container.mb-5 { padding-top: 3rem; }
+main.container.mb-5 h2 { font-weight: 600; margin-bottom: 2.5rem !important; }
 
-/* Style de la section contact*/
-  /* ===== Section globale ===== */
-  .contact {
-    background: linear-gradient(135deg, #f8f9fa 0%, #eef1f5 100%);
-  }
+main.container.mb-5 .card {
+  border: none;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  /* ===== Cartes (formulaire + maps) ===== */
-  #contact-section,
-  #maps-section {
-    border-radius: 20px !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 520px;
-    margin: 0 auto; /* centre la carte dans sa colonne */
-  }
+main.container.mb-5 .card:hover { transform: translateY(-6px); box-shadow: 0 1.25rem 2.5rem rgba(23,22,58,0.2); }
+main.container.mb-5 .card-img-top { filter: saturate(1.05); }
 
-  #contact-section:hover,
-  #maps-section:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1) !important;
-  }
+main.container.mb-5 .badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45em 0.85em;
+  border-radius: 999px !important;
+}
 
-  /* ===== Titres ===== */
-  #contact-section h2,
-  #maps-section h3 {
-    position: relative;
-    padding-bottom: 0.75rem;
-  }
+main.container.mb-5 .card-title { font-size: 1.15rem; font-weight: 700; }
 
-  #contact-section h2::after,
-  #maps-section h3::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: #212529;
-    border-radius: 3px;
-  }
+main.container.mb-5 .btn-outline-primary {
+  color: var(--night);
+  border-color: var(--night);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
 
-  /* ===== Champs du formulaire ===== */
-  #contact-form .form-control {
-    border-radius: 12px;
-    transition: box-shadow 0.2s ease, background-color 0.2s ease;
-  }
+main.container.mb-5 .btn-outline-primary:hover { background: var(--night); border-color: var(--night); }
 
-  #contact-form .form-control:focus {
-    background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(33, 37, 41, 0.15);
-  }
+/* ======================== PAGE ENSEIGNEMENTS ======================= */
+#enseignements-page {
+  background: linear-gradient(160deg, var(--ivory) 0%, var(--ivory-deep) 100%);
+  min-height: 80vh;
+  padding: 3rem 0 4rem;
+}
 
-  #contact-form label {
-    font-size: 0.9rem;
-    letter-spacing: 0.02em;
-  }
+.main-card { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); }
 
-  /* ===== Bouton ===== */
-  #contact-form button {
-    border-radius: 12px;
-    letter-spacing: 0.03em;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+.hero-banner {
+  background: linear-gradient(135deg, var(--night) 0%, var(--night-soft) 100%);
+  padding: 3rem 2rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
 
-  #contact-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  }
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  top: -50%; right: -10%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(232,163,61,0.22) 0%, transparent 70%);
+  border-radius: 50%;
+}
 
-  /* ===== Carte Google Maps ===== */
-  #maps-section .ratio {
-    border-radius: 12px;
-    overflow: hidden;
-  }
+.hero-icon {
+  width: 70px; height: 70px;
+  background: rgba(232, 163, 61, 0.18);
+  border: 1px solid rgba(232, 163, 61, 0.4);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 2rem;
+  color: var(--gold-light);
+}
 
-  /* ===== Responsive ===== */
-  @media (max-width: 991.98px) {
-    #contact-section,
-    #maps-section {
-      max-width: 100%;
-    }
-  }
+.hero-banner h2 { color: #fff; letter-spacing: 0.02em; }
+.hero-banner p { color: rgba(255, 255, 255, 0.72); margin-bottom: 0; }
 
-  .enseignements-page {
-      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-      min-height: 100vh;
-      margin: 10px;
-      padding: 2rem;
-    }
+.program-item {
+  border: none;
+  border-bottom: 1px solid rgba(23,22,58,0.08) !important;
+  padding: 1.5rem 1.75rem;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
 
-    .hero-banner {
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-      border-radius: 20px 20px 0 0;
-      padding: 3rem 2rem 2rem;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
+.program-item:last-child { border-bottom: none !important; }
+.program-item:hover { background-color: var(--ivory-deep); transform: translateX(4px); }
 
-    .hero-banner::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-      border-radius: 50%;
-    }
+.day-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
 
-    .hero-icon {
-      width: 70px;
-      height: 70px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1rem;
-      font-size: 2rem;
-      color: #fff;
-    }
+.icon-sunday { background: rgba(232, 163, 61, 0.15); color: var(--gold); }
+.icon-wednesday { background: rgba(27, 110, 92, 0.14); color: var(--emerald); }
+.icon-friday { background: rgba(193, 67, 42, 0.14); color: var(--ember); }
 
-    .hero-banner h2 {
-      color: #fff;
-      letter-spacing: 0.02em;
-    }
+.badge-time { font-weight: 700; font-size: 0.82rem; letter-spacing: 0.01em; }
 
-    .hero-banner p {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 0;
-    }
+/* ======================= PAGE TEMPLE-VICTOIRE ====================== */
+.tv-hero {
+  background: linear-gradient(135deg, var(--night) 0%, var(--night-soft) 60%, var(--night-softer) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 4.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
 
-    .main-card {
-      border-radius: 20px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.tv-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(45% 70% at 50% 0%, rgba(232,163,61,0.25), transparent 65%);
+}
 
-    .program-item {
-      border: none;
-      border-bottom: 1px solid #eef1f5 !important;
-      padding: 1.5rem 1rem;
-      transition: background-color 0.25s ease, transform 0.25s ease;
-    }
+.tv-hero h1 { color: #fff; font-weight: 600; position: relative; }
+.tv-hero .lead { color: rgba(255,255,255,0.75); position: relative; }
 
-    .program-item:last-child {
-      border-bottom: none !important;
-    }
+.tv-hero .badge {
+  background: linear-gradient(120deg, var(--gold), var(--ember)) !important;
+  color: var(--night) !important;
+  font-weight: 700;
+  border-radius: 999px;
+  position: relative;
+}
 
-    .program-item:hover {
-      background-color: #f8fafc;
-      transform: translateX(4px);
-    }
+main.my-5 > section.card {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
 
-    .day-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
+main.my-5 .rounded-start { border-radius: 0 !important; }
+main.my-5 section.card .text-warning { color: var(--ember) !important; }
+main.my-5 section.card .text-primary { color: var(--night) !important; }
 
-    .icon-sunday {
-      background: rgba(13, 110, 253, 0.12);
-      color: #0d6efd;
-    }
+.card.bg-dark { background: var(--night) !important; border-radius: var(--radius-lg) !important; }
+.card.bg-dark .text-warning { color: var(--gold-light) !important; }
 
-    .icon-wednesday {
-      background: rgba(25, 135, 84, 0.12);
-      color: #198754;
-    }
+.card.bg-dark .btn-warning {
+  background: linear-gradient(120deg, var(--gold), var(--ember));
+  border: none;
+  color: var(--night);
+  font-weight: 700;
+  border-radius: 999px;
+}
 
-    .icon-friday {
-      background: rgba(255, 193, 7, 0.15);
-      color: #b8860b;
-    }
+#programmes-page .custom-card {
+  border-radius: var(--radius-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
 
-    .badge-time {
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.01em;
-    }
+#programmes-page .custom-card:hover { transform: translateY(-8px); box-shadow: 0 1rem 2rem rgba(23,22,58,0.16) !important; }
+#programmes-page .card-title { line-height: 1.4; min-height: 3.2rem; font-size: 1.05rem; }
+#programmes-page .card-text { line-height: 1.6; min-height: 5rem; }
+
+#programmes-page .bg-primary-subtle,
+#programmes-page .bg-danger-subtle,
+#programmes-page .bg-success-subtle {
+  width: 70px; height: 70px;
+  align-items: center; justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+#programmes-page .bg-primary-subtle { background: rgba(232,163,61,0.15) !important; color: var(--gold) !important; }
+#programmes-page .bg-danger-subtle { background: rgba(193,67,42,0.14) !important; color: var(--ember) !important; }
+#programmes-page .bg-success-subtle { background: rgba(27,110,92,0.14) !important; color: var(--emerald) !important; }
+
+#programmes-page .custom-card:hover .bg-primary-subtle,
+#programmes-page .custom-card:hover .bg-danger-subtle,
+#programmes-page .custom-card:hover .bg-success-subtle { transform: scale(1.1) rotate(-5deg); }
+
+#programmes-page .time-badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  background-color: var(--ivory-deep);
+  border: 1px solid rgba(23,22,58,0.08);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+#programmes-page h2 { position: relative; padding-bottom: 1rem; }
+
+#programmes-page h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--ember));
+  border-radius: 3px;
+}
+
+/* ============================ PAGE CONTACT ========================= */
+.contact { background: linear-gradient(160deg, var(--ivory) 0%, var(--ivory-deep) 100%); }
+
+#contact-section, #maps-section.card {
+  border-radius: var(--radius-lg) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+#contact-section:hover, #maps-section.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 1rem 2rem rgba(23,22,58,0.14) !important;
+}
+
+#contact-section h2, #maps-section.card h3 { position: relative; padding-bottom: 0.75rem; }
+
+#contact-section h2::after, #maps-section.card h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 60px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--ember));
+  border-radius: 3px;
+}
+
+#contact-form .form-control { border-radius: var(--radius-sm); transition: box-shadow 0.2s ease, background-color 0.2s ease; }
+
+#contact-form .form-control:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(232, 163, 61, 0.25);
+  border-color: var(--gold);
+}
+
+#contact-form label { font-size: 0.9rem; letter-spacing: 0.02em; color: var(--ink-soft); }
+
+#contact-form button {
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.03em;
+  background: var(--night);
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+#contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(23,22,58,0.25);
+  background: var(--night-soft);
+}
+
+#maps-section.card .ratio { border-radius: var(--radius-md); overflow: hidden; }
+
+@media (max-width: 991.98px) {
+  #contact-section, #maps-section.card { max-width: 100%; }
+}
+
+/* ============================== FOOTER ============================= */
+footer.site-footer { background: var(--night) !important; position: relative; }
+footer.site-footer .rayons-divider { margin: 0; padding-top: 2.5rem; }
+footer.site-footer h5 { color: var(--gold-light) !important; }
+footer.site-footer a.text-white:hover { color: var(--gold-light) !important; }
+footer.site-footer strong.text-warning { color: var(--gold-light) !important; }
+
+footer.site-footer .btn-floating {
+  width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+footer.site-footer .btn-floating:hover {
+  background: linear-gradient(120deg, var(--gold), var(--ember));
+  transform: translateY(-3px);
+}
+
+footer.site-footer hr { border-color: rgba(255,255,255,0.15); }
